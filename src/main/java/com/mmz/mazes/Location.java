@@ -13,7 +13,9 @@ public class Location {
         this.col = col;
     }
 
-    public Location getNorth() { return new Location(row - 1, col); }
+    public Location getNorth() {
+        return new Location(row - 1, col);
+    }
 
     public Location getEast() {
         return new Location(row, col + 1);
@@ -23,13 +25,15 @@ public class Location {
         return new Location(row + 1, col);
     }
 
-    public Location getWest() { return new Location(row, col - 1); }
+    public Location getWest() {
+        return new Location(row, col - 1);
+    }
 
-    public int getRow(){
+    public int getRow() {
         return row;
     }
 
-    public int getCol(){
+    public int getCol() {
         return col;
     }
 
@@ -51,7 +55,7 @@ public class Location {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "(" + row + ", " + col + ")";
     }
 }

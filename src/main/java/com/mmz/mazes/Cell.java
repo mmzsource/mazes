@@ -16,15 +16,15 @@ public class Cell {
 
     private Set<Cell> links = new HashSet<>();
 
-    public Cell(Location location){
+    public Cell(Location location) {
         this.location = location;
     }
 
-    public Location getLocation(){
+    public Location getLocation() {
         return location;
     }
 
-    public void link(Cell cell){
+    public void link(Cell cell) {
         if (links.contains(cell)) {
             return;
         }
@@ -32,77 +32,63 @@ public class Cell {
         cell.link(this);
     }
 
-    public void unlink(Cell cell){
-        links.remove(cell);
-        cell.unlink(this);
-    }
-
-    public boolean isLinked(Cell cell){
+    public boolean isLinked(Cell cell) {
         return links.contains(cell);
     }
 
-    public Set<Cell> getLinks(){
+    public Set<Cell> getLinks() {
         return Collections.unmodifiableSet(links);
     }
 
-    public void setNorth(Cell cell){
+    public void setNorth(Cell cell) {
         this.north = cell;
     }
 
-    public Cell getNorth(){
+    public Cell getNorth() {
         return north;
     }
 
-    public boolean hasNorth(){
+    public boolean hasNorth() {
         return north != null;
     }
 
-    public void setEast(Cell cell){
+    public void setEast(Cell cell) {
         this.east = cell;
     }
 
-    public Cell getEast(){
+    public Cell getEast() {
         return east;
     }
 
-    public boolean hasEast(){
+    public boolean hasEast() {
         return east != null;
     }
 
-    public void setSouth(Cell cell){
+    public void setSouth(Cell cell) {
         this.south = cell;
     }
 
-    public Cell getSouth(){
+    public Cell getSouth() {
         return south;
     }
 
-    public boolean hasSouth(){
+    public boolean hasSouth() {
         return south != null;
     }
 
-    public void setWest(Cell cell){
+    public void setWest(Cell cell) {
         this.west = cell;
     }
 
-    public Cell getWest(){
+    public Cell getWest() {
         return west;
     }
 
-    public boolean hasWest(){
+    public boolean hasWest() {
         return west != null;
     }
 
-    public List<Cell> getNeighbours(){
-        List<Cell> neighbours = new ArrayList<>();
-        if (hasNorth()) neighbours.add(north);
-        if (hasEast()) neighbours.add(east);
-        if (hasSouth()) neighbours.add(south);
-        if (hasWest()) neighbours.add(west);
-        return neighbours;
-    }
-
-    public List<Cell> getUnvisitedNeighbours(){
+    public List<Cell> getUnvisitedNeighbours() {
         List<Cell> unvisitedNeighbours = new ArrayList<>();
         if (hasNorth() && north.getLinks().size() == 0) unvisitedNeighbours.add(north);
         if (hasEast() && east.getLinks().size() == 0) unvisitedNeighbours.add(east);

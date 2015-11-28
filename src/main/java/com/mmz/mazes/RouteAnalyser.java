@@ -1,8 +1,8 @@
 package com.mmz.mazes;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class RouteAnalyser {
 
@@ -18,10 +18,7 @@ public class RouteAnalyser {
 
         LinkedList<Location> shortestPath = distances.getShortestPathTo(grid.getCell(furthestFromFurthest));
 
-        Set<Location> locations = new HashSet<>();
-        for (Location loc : shortestPath) {
-            locations.add(loc);
-        }
+        Set<Location> locations = shortestPath.stream().collect(Collectors.toSet());
 
         grid.setDistances(distances);
         grid.setStartStop(furthestBorderLocation, furthestFromFurthest);

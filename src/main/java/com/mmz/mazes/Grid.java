@@ -58,7 +58,7 @@ public class Grid {
         this.distances = distances;
     }
 
-    public void setStartStop(Location start, Location stop){
+    public void setStartStop(Location start, Location stop) {
         this.start = start;
         this.stop = stop;
     }
@@ -107,7 +107,7 @@ public class Grid {
     }
 
     public String bodyOf(Cell cell) {
-        if (cell.getLocation().equals(start) || cell.getLocation().equals(stop)){
+        if (cell.getLocation().equals(start) || cell.getLocation().equals(stop)) {
             return "  @  ";
         }
         return "     ";
@@ -134,7 +134,7 @@ public class Grid {
             return bodyOf(cell);
         }
 
-        if (cell.getLocation().equals(start) || cell.getLocation().equals(stop)){
+        if (cell.getLocation().equals(start) || cell.getLocation().equals(stop)) {
             return "  @  ";
         }
 

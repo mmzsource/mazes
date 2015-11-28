@@ -25,6 +25,14 @@ public class Location {
 
     public Location getWest() { return new Location(row, col - 1); }
 
+    public int getRow(){
+        return row;
+    }
+
+    public int getCol(){
+        return col;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(row, col);

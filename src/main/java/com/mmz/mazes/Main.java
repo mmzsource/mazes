@@ -3,13 +3,11 @@ package com.mmz.mazes;
 public class Main {
 
     public static void main(String[] args) {
-        Grid grid = new Grid(20,20);
-        RecursiveBackTracker.createMazeOn(grid);
-        Distances distances = new Distances(grid.getRandomCell());
-        System.out.println(grid.toString());
-        grid.setDistances(distances);
-//        BinaryTree bt = new BinaryTree();
-//        bt.createMazeOn(grid);
-        System.out.println(grid.toString());
+        Grid grid = new Grid(10, 10);
+        RecursiveBackTracker.createMazeOn(grid);;
+        RouteAnalyser.setLongestPathOn(grid);
+        System.out.println(grid.printGrid());
+//        System.out.println(grid.printDistances());
+        System.out.println(grid.printLongestRoute());
     }
 }

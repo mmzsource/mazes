@@ -4,15 +4,15 @@ import java.util.*;
 
 public class Distances {
 
-    private final Cell root;
+    private Cell root;
 
     private Map<Location, Integer> distances = new HashMap<>();
 
-    public Distances(Cell root) {
-        this.root = root;
+    public Distances(Cell start) {
+        this.root = start;
         int distance = 0;
-        distances.put(root.getLocation(), distance);
-        Set<Cell> frontier = root.getLinks();
+        distances.put(start.getLocation(), distance);
+        Set<Cell> frontier = start.getLinks();
         while (frontier.size() > 0) {
             distance++;
             Set<Cell> newFrontier = new HashSet<>();
@@ -28,11 +28,25 @@ public class Distances {
         }
     }
 
-    public Cell getRoot() {
-        return root;
-    }
-
     public Integer getDistanceFromRoot(Location location) {
         return distances.get(location);
+    }
+
+    public LinkedList<Location> getShortestPathTo(Cell end){
+        LinkedList<Location> locations = new LinkedList<>();
+        locations.add(end.getLocation());
+        int distance = distances.get(end.getLocation());
+        Cell currentCell = end;
+        while (distance > 0) {
+            distance--;
+            for (Cell linkedCell : currentCell.getLinks()) {
+                if (distances.get(linkedCell.getLocation()).compareTo(distance) == 0){
+                    locations.add(linkedCell.getLocation());
+                    currentCell = linkedCell;
+                    break;
+                }
+            }
+        }
+        return locations;
     }
 }

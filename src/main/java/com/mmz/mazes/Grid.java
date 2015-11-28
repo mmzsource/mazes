@@ -73,7 +73,7 @@ public class Grid {
         StringBuilder result = new StringBuilder();
         result.append("+");
         for (int i = 0; i < cols; i++) {
-            result.append("---+");
+            result.append("-----+");
         }
         result.append("\n");
         return result.toString();
@@ -89,9 +89,9 @@ public class Grid {
                 Arrays.fill(charArray, ' ');
                 str = new String(charArray);
             }
-            result.append(distance).append(str);
+            result.append(" ").append(distance).append(str).append(" ");
         } else {
-            result.append("   ");
+            result.append("     ");
         }
         if (cell.isLinked(cell.getEast())){
             result.append(" ");
@@ -104,9 +104,9 @@ public class Grid {
     private String bottomBorderOf(Cell cell) {
         StringBuilder result  = new StringBuilder();
         if (cell.isLinked(cell.getSouth())){
-            result.append("   +");
+            result.append("     +");
         } else {
-            result.append("---+");
+            result.append("-----+");
         }
         return result.toString();
     }

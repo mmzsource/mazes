@@ -3,7 +3,7 @@ package com.mmz.mazes;
 public class Main {
 
     public static void main(String[] args) {
-        Grid grid = new Grid(12,14);
+        Grid grid = new Grid(20,20);
         RecursiveBackTracker.createMazeOn(grid);
         Distances distances = new Distances(grid.getRandomCell());
         System.out.println(grid.toString());
